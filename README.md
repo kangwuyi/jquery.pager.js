@@ -8,27 +8,27 @@ jQuery.pager.js是一款通过回调函数进行分页处理的jquery插件，�
 
 通过类似如下的方式与后端进行交互：
 
-        $("#pager").pager({
-            pagenumber: pageIndex,
-            pagecount: pageCount,
-            buttonClickCallback: function (pageclickednumber) {
-                loadPagination(pageclickednumber);
-            }
-        });
-        function loadPagination(pageNum) {
-            jQuery.ajax({
-                type: "POST",
-                url: baseUrl + "/interface.json",
-                dataType: "json",
-                data: postData,
-                beforeSend: function () {
-                    $.modal.on("loading");
-                },
-                success: function (data) {
-                    //代码区
-                }
+    $("#pager").pager({
+        pagenumber: pageIndex,
+        pagecount: pageCount,
+        buttonClickCallback: function (pageclickednumber) {
+            loadPagination(pageclickednumber);
+        }
+    });
+    function loadPagination(pageNum) {
+        jQuery.ajax({
+            type: "POST",
+            url: baseUrl + "/interface.json",
+            dataType: "json",
+            data: postData,
+            beforeSend: function () {
+                $.modal.on("loading");
+            },
+            success: function (data) {
+                //代码区
             }
         }
+    }
 
 ----------
 
